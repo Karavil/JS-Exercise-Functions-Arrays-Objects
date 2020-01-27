@@ -146,8 +146,9 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+const getCarInfoByIndex = (inventory, index) => {
+  const car = inventory[index];
+  return `This is a ${car.car_make} ${car.car_model}`;
 }
 
 /**
@@ -161,8 +162,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+const getLastCarInfo = (inventory) => {
+  const lastCar = inventory[inventory.length-1];
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
 
 /**
@@ -177,8 +179,12 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+const getCarInfoById = (inventory, id) => {
+  for (let car of inventory) {
+    if (car.id === id) {
+      return `This is a ${car.car_make} ${car.car_model}`;
+    }
+  }
 }
 
 /**
