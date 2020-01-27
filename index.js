@@ -195,8 +195,9 @@ const getCarInfoById = (inventory, id) => {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+const sortCarInventory = (inventory) => {
+  const sorted = [...inventory.sort((a, b) => (a.car_model > b.car_model) ? 1 : -1)];
+  return sorted;
 }
 
 /**
@@ -208,8 +209,12 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+const getModelYears = (inventory) => {
+  const years = [];
+  for (const car of inventory) {
+    years.push(car.car_year);
+  }
+  return years;
 }
 
 /**
@@ -224,8 +229,14 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+const getOlderCars = (inventory, maxYear) => {
+  const filtered = [];
+  for (const car of inventory) {
+    if (car.car_year <= maxYear) {
+      filtered.push(car);
+    }
+  }
+  return filtered;
 }
 
 /**
@@ -239,7 +250,18 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
+const getGermanCars = (inventory) => {
+  const germanBrands = new Set(['audi', 'mercedes-benz', 'volkswagen', 'bmw']);
+
+  const germanCars = [];
+  for (const car of inventory) {
+    if (germanBrands.has(car.car_make.toLowerCase())) {
+      germanCars.push(car);
+    } 
+  }
+
+  return germanCars;
+  
   /* code here */
 }
 
