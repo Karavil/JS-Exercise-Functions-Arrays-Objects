@@ -77,8 +77,15 @@ const getName = (userObject) => {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+const makeSmartPerson = (name) => {
+  const speak = () => 'Hello, my name is ' + name;
+  const sum = (num1, num2) => num1 + num2;
+
+  return {
+    name: name,
+    sum: sum,
+    speak: speak
+  }
 }
 
 
