@@ -12,7 +12,7 @@
  *
  * NOTE: This example has been completed for you.
 */
-function addNumbers(num1, num2) {
+const addNumbers = (num1, num2) => {
   return num1 + num2;
 }
 
@@ -39,8 +39,12 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+const makePersonObject = (id, name, email) => {
+  return {
+    id: id,
+    name: name,
+    email: email
+  };
 }
 
 /**
